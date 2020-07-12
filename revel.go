@@ -2,7 +2,6 @@ package revel
 
 import (
 	"fmt"
-	stdlog "log"
 	"runtime"
 	"strings"
 
@@ -19,31 +18,25 @@ type Logger struct{}
 func NewLogger() loggers.Contextual {
 	var l *Logger
 	var a = mappers.NewContextualMap(l)
-	a.Info("Now using Revel's logger package (via loggers/mappers/revel).")
-
-	// Remove filename printing from revel logger.
-	revel.TRACE.SetFlags(stdlog.Ldate | stdlog.Ltime)
-	revel.INFO.SetFlags(stdlog.Ldate | stdlog.Ltime)
-	revel.WARN.SetFlags(stdlog.Ldate | stdlog.Ltime)
-	revel.ERROR.SetFlags(stdlog.Ldate | stdlog.Ltime)
+	//a.Info("Now using Revel's logger package (via loggers/mappers/revel).\n")
 	return a
 }
 
 // LevelPrint is a Mapper method
 func (l *Logger) LevelPrint(lev mappers.Level, i ...interface{}) {
 	i = append([]interface{}{caller(3) + " "}, i...)
-	getRevelLevel(lev).Print(i...)
+	getRevelLevel(lev)(fmt.Sprint(i...))
 }
 
 // LevelPrintf is a Mapper method
 func (l *Logger) LevelPrintf(lev mappers.Level, format string, i ...interface{}) {
-	getRevelLevel(lev).Printf(caller(3)+" "+format, i...)
+	getRevelLevel(lev)(fmt.Sprintf(caller(3)+" "+format, i...))
 }
 
 // LevelPrintln is a Mapper method
 func (l *Logger) LevelPrintln(lev mappers.Level, i ...interface{}) {
 	i = append([]interface{}{caller(3)}, i...)
-	getRevelLevel(lev).Println(i...)
+	getRevelLevel(lev)(fmt.Sprintln(i...))
 }
 
 // WithField returns an advanced logger with a pre-set field.
@@ -70,7 +63,7 @@ type revelPostfixLogger struct {
 
 func (r *revelPostfixLogger) LevelPrint(lev mappers.Level, i ...interface{}) {
 	i = append(i, r.postfix)
-	getRevelLevel(lev).Print(i...)
+	getRevelLevel(lev)(fmt.Sprint(i...))
 }
 
 func (r *revelPostfixLogger) LevelPrintf(lev mappers.Level, format string, i ...interface{}) {
@@ -78,28 +71,28 @@ func (r *revelPostfixLogger) LevelPrintf(lev mappers.Level, format string, i ...
 		format = format + " %s"
 		i = append(i, r.postfix)
 	}
-	getRevelLevel(lev).Printf(format, i...)
+	getRevelLevel(lev)(fmt.Sprintf(format, i...))
 }
 
 func (r *revelPostfixLogger) LevelPrintln(lev mappers.Level, i ...interface{}) {
 	i = append(i, r.postfix)
-	getRevelLevel(lev).Println(i...)
+	getRevelLevel(lev)(fmt.Sprintln(i...))
 }
 
-func getRevelLevel(lev mappers.Level) loggers.Standard {
+func getRevelLevel(lev mappers.Level) func(string, ...interface{}) {
 	switch lev {
 	case mappers.LevelDebug:
-		return revel.TRACE
+		return revel.AppLog.Debug
 	case mappers.LevelInfo:
-		return revel.INFO
+		return revel.AppLog.Info
 	case mappers.LevelWarn:
-		return revel.WARN
+		return revel.AppLog.Warn
 	case mappers.LevelError:
-		return revel.ERROR
+		return revel.AppLog.Error
 	case mappers.LevelFatal:
-		return revel.ERROR
+		return revel.AppLog.Fatal
 	case mappers.LevelPanic:
-		return revel.ERROR
+		return revel.AppLog.Panic
 	default:
 		panic("unreachable")
 	}
