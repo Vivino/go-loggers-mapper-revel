@@ -5,9 +5,10 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/Vivino/go-loggers"
+	"github.com/Vivino/go-loggers/mappers"
+
 	"github.com/revel/revel"
-	"gopkg.in/birkirb/loggers.v1"
-	"gopkg.in/birkirb/loggers.v1/mappers"
 )
 
 // Logger is a Contextual logger wrapper over Revel's logger.

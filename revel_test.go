@@ -10,12 +10,13 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/Vivino/go-loggers"
+	"github.com/Vivino/go-loggers/log"
+
 	log15 "github.com/inconshreveable/log15"
 	"github.com/revel/revel"
 	rlogger "github.com/revel/revel/logger"
 	"github.com/stretchr/testify/assert"
-	"gopkg.in/birkirb/loggers.v1"
-	"gopkg.in/birkirb/loggers.v1/log"
 )
 
 func TestRevelInterface(t *testing.T) {
