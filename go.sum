@@ -11,8 +11,8 @@ github.com/Vivino/go-common v1.0.269-production h1:Jjq10vC9pMT789a/jqFDBXhbkADWD
 github.com/Vivino/go-common v1.0.269-production/go.mod h1:I2u1LDZNYTKGG7Sp6725OO31MqnTy75+q2AmW+3IbiI=
 github.com/Vivino/go-loggers v1.1.1-0.20230830093419-3180fd46e949 h1:KB2Jc1Xo/Y1t5HSWOle2iGoXzL+9mBgqtiMzCutOkP4=
 github.com/Vivino/go-loggers v1.1.1-0.20230830093419-3180fd46e949/go.mod h1:zD+/h6ahLFL3ivzD/SbXoQ6ZjIlwOlJcO2IiM9CWRkA=
-github.com/Vivino/go-tools v1.0.219-production h1:Msy9S+OdOxHzTvr9yAhbbXPoqBrkc1Z1Olw/L4xDaAk=
-github.com/Vivino/go-tools v1.0.219-production/go.mod h1:HPMIgx8OG99GxNx6gHQG5pi+X4CbACtP/6+h65eQ2EQ=
+github.com/Vivino/go-tools v1.0.221-production h1:ld0CRWRLf8WESeijO5h+cgloj8kCfHCt2gVvRWEEyfU=
+github.com/Vivino/go-tools v1.0.221-production/go.mod h1:N2muIvLv16zgdJaFULWIgYZfj3zJ3zkl1wjPrz7ulNg=
 github.com/Vivino/gorm v1.9.12-0.20200218113921-b416eb4d4ed6 h1:txmowo+8bvscddjN1lDbvUNBD8mY5tPoCLIxzPed5f4=
 github.com/Vivino/gorm v1.9.12-0.20200218113921-b416eb4d4ed6/go.mod h1:2x/Qj7Suy4H7Fx4GfiaG4LiGoqCqUYtGftSXyw+o0rs=
 github.com/Vivino/revel v0.11.2-0.20211006090011-d9d6d0f92909 h1:DyNamfUY1HVQY72cDdTQUwi6eLlrjFqGlFciTX5DUQE=
@@ -196,8 +196,6 @@ google.golang.org/genproto v0.0.0-20190404172233-64821d5d2107/go.mod h1:VzzqZJRn
 google.golang.org/grpc v1.17.0/go.mod h1:6QZJwpn2B+Zp71q/5VxRsJ6NXXVCE5NRUHRo+f3cWCs=
 google.golang.org/grpc v1.19.0/go.mod h1:mqu4LbDTu4XGKhr4mRzUsmM4RtVoemTSY81AxZiDr8c=
 gopkg.in/alecthomas/kingpin.v2 v2.2.6/go.mod h1:FMv+mEhP44yOT+4EoQTLFTRgOQ1FBLkstjWtayDeSgw=
-gopkg.in/birkirb/loggers.v1 v1.1.0 h1:7dt/2mwY1bo1IZH1XX3JLx7bCeLf9MHu1lpCt/ZyEJs=
-gopkg.in/birkirb/loggers.v1 v1.1.0/go.mod h1:+rK5V8ydMXWC2ZPqEsh1ponO3uTR5JutiapgW36u8wI=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c h1:Hei/4ADfdWqJk1ZMxUNpqntNwaWcugrBjAiHlqqRiVk=
